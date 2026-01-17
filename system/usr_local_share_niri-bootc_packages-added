@@ -1,0 +1,53 @@
+####################################################
+# List of packages to install on top of base image
+####################################################
+
+# NIRI 
+niri
+foot
+waybar
+wl-clipboard
+xdg-desktop-portal
+xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
+xorg-x11-server-Xwayland
+polkit
+dbus-daemon
+
+# GREETER
+sddm
+
+# Original
+bash
+coreutils
+util-linux
+iproute
+iputils
+NetworkManager
+openssh-server
+sudo
+less
+tmux
+man-db
+firewalld
+
+# Utilities
+vim-default-editor
+git
+vifm
+python3
+python3-pip
+glibc-langpack-en
+
+# Cockpit
+cockpit
+cockpit-podman
+cockpit-selinux
+cockpit-files
+
+# Troubleshooting
+lshw
+btop
+ncdu
+nmap
+
