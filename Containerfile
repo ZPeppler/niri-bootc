@@ -13,6 +13,8 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
+# REMOVE ONCE QUICKSHELL ISN'T IN RAWHIDE
+RUN dnf -y copr enable errornointernet/quickshell
 
 # INSTALL PACKAGES
 RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y install --allowerasing
@@ -21,6 +23,7 @@ RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y inst
 # RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-removed | xargs dnf -y remove
 RUN dnf -y autoremove
 RUN dnf clean all
+
 
 # CONFIGURATION
 COPY --chmod=0644 ./system/etc_skel_niri-bootc /etc/skel/.bashrc.d/niri-bootc
