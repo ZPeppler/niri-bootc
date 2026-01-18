@@ -45,6 +45,8 @@ glibc-langpack-en
 lspci
 zoxide
 lazygit
+wget
+unzip
 
 # Cockpit
 cockpit
