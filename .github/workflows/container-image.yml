@@ -15,5 +15,5 @@ jobs:
         run: podman build -t niri-bootc --disable-compression=false .
       - name: push image to ghcr.io
         run: |
-          podman tag niri-bootc ghcr.io/${{ github.actor }}/niri-bootc:latest
-          podman push ghcr.io/${{ github.actor }}/niri-bootc:latest --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+          podman tag niri-bootc ghcr.io/zpeppler/niri-bootc:latest
+          podman push ghcr.io/zpeppler/niri-bootc:latest --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
