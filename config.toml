@@ -33,8 +33,6 @@ selinux --enforcing
 # Services
 services --enabled=sshd
 
-# Remote bootc image
-ostree container --url docker://ghcr.io/zpeppler/niri-bootc:latest
 
 # Reboot after install
 reboot

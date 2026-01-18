@@ -51,3 +51,7 @@ btop
 ncdu
 nmap
 
+# ZSH
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting

@@ -1,1 +1,1 @@
-# sway-bootc
+# niri-bootc
