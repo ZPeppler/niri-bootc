@@ -13,6 +13,7 @@ xorg-x11-server-Xwayland
 polkit
 dbus-daemon
 quickshell
+dms
 
 # GREETER
 sddm
