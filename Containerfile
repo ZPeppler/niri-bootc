@@ -16,7 +16,7 @@ RUN dnf -y install dnf5-plugins
 # REMOVE COPR REPOS ASAP
 RUN dnf -y copr enable errornointernet/quickshell 
 RUN dnf -y copr enable dejan/lazygit
-RUN dnf copr enable avengemedia/dms
+RUN dnf -y copr enable avengemedia/dms
 
 # INSTALL PACKAGES
 RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y install --allowerasing
