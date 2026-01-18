@@ -39,6 +39,12 @@ RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal-gtk.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-gtk.service
 RUN systemctl enable cockpit.socket
 
+COPY --chmod=0644 ./systemd/usr_lib_systemd_system_bootc-fetch.service /usr/lib/systemd/system/bootc-fetch.service
+COPY --chmod=0644 ./systemd/usr_lib_systemd_system_bootc-fetch.timer /usr/lib/systemd/system/bootc-fetch.timer
+
+RUN systemctl enable bootloader-update.service
+RUN systemctl mask bootc-fetch-apply-updates.timer
+
 # CLEAN & CHECK
 RUN find /var/log -type f ! -empty -delete
 RUN bootc container lint
