@@ -21,9 +21,9 @@ jobs:
 
       - name: Log in to GHCR
         run: |
-          echo "${{ secrets.GHCR_PAT }}" | podman login ghcr.io -u "${{ github.repository_owner }}" --password-stdin
+          echo "${{ secrets.GHCR_PAT }}" | podman login ghcr.io -u "${{ toLower(github.repository_owner) }}" --password-stdin
 
       - name: push image to ghcr.io
         run: |
-          podman tag niri-bootc ghcr.io/${{ github.repository_owner }}/niri-bootc:latest
-          podman push ghcr.io/${{ github.repository_owner }}/niri-bootc:latest
+          podman tag niri-bootc ghcr.io/${{ toLower(github.repository_owner) }}/niri-bootc:latest
+          podman push ghcr.io/${{ toLower(github.repository_owner) }}/niri-bootc:latest
