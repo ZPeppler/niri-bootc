@@ -16,6 +16,8 @@ quickshell
 
 # GREETER
 sddm
+greetd
+tuigreet
 
 # Original
 bash
