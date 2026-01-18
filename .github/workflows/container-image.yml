@@ -6,14 +6,24 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   niri-bootc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: run podman build
         run: podman build -t niri-bootc --disable-compression=false .
+
+      - name: Log in to GHCR
+        run: |
+          echo "${{ secrets.GHCR_PAT }}" | podman login ghcr.io -u "${{ github.repository_owner }}" --password-stdin
+
       - name: push image to ghcr.io
         run: |
-          podman tag niri-bootc ghcr.io/${{ github.actor }}/niri-bootc:latest
-          podman push ghcr.io/${{ github.actor }}/niri-bootc:latest --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+          podman tag niri-bootc ghcr.io/zpeppler/niri-bootc:latest
+          podman push ghcr.io/zpeppler/niri-bootc:latest
