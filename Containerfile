@@ -13,8 +13,9 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
-# REMOVE ONCE QUICKSHELL ISN'T IN RAWHIDE
-RUN dnf -y copr enable errornointernet/quickshell
+# REMOVE COPR REPOS ASAP
+RUN dnf -y copr enable errornointernet/quickshell 
+RUN dnf -y copr enable dejan/lazygit
 
 # INSTALL PACKAGES
 RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y install --allowerasing
