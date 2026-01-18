@@ -22,7 +22,7 @@ RUN dnf -y copr enable avengemedia/dms
 RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y install --allowerasing
 
 # REMOVE PACKAGES
-# RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-removed | xargs dnf -y remove
+RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-removed | xargs dnf -y remove
 RUN dnf -y autoremove
 RUN dnf clean all
 
@@ -37,7 +37,7 @@ RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal.service && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal-wlr.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-wlr.service && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal-gtk.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-gtk.service
-
+RUN systemctl enable cockpit.socket
 
 # CLEAN & CHECK
 RUN find /var/log -type f ! -empty -delete

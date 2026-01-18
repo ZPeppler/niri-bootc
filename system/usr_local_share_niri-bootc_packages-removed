@@ -1,3 +1,6 @@
 ####################################################
 # List of packages to remove on top of base image
 ####################################################
+
+# NIRI config
+waybar

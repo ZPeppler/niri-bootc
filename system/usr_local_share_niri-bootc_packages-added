@@ -47,6 +47,7 @@ zoxide
 lazygit
 wget
 unzip
+flatpak
 
 # Cockpit
 cockpit
