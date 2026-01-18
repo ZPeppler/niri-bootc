@@ -36,6 +36,7 @@ RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal-wlr.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-wlr.service && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal-gtk.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-gtk.service
 
+
 # CLEAN & CHECK
 RUN find /var/log -type f ! -empty -delete
 RUN bootc container lint
