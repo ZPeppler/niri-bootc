@@ -20,6 +20,7 @@ RUN dnf -y copr enable dejan/lazygit
 RUN dnf -y copr enable avengemedia/dms
 
 # INSTALL PACKAGES
+RUN dnf -y update
 RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y install --allowerasing
 
 # REMOVE PACKAGES
