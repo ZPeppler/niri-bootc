@@ -75,6 +75,11 @@ npm
 nodejs
 cargo
 
+# NEOVIDE
+fontconfig-devel
+libstdc++-static
+libstdc++-devel
+
 # Drivers
 linux-firmware
 kernel-modules

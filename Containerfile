@@ -21,6 +21,7 @@ RUN dnf -y copr enable avengemedia/dms
 
 # INSTALL PACKAGES
 RUN dnf -y update
+RUN dnf -y install @development-tools
 RUN grep -vE '^#' /usr/local/share/niri-bootc/packages-added | xargs dnf -y install --allowerasing
 
 # REMOVE PACKAGES
