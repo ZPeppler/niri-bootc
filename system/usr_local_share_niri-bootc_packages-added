@@ -18,6 +18,9 @@ dms
 # GREETER
 sddm
 materia-kde-sddm
+qt6-qtgraphicaleffects
+qt6-qtquickcontrols2
+qt6-qtmultimedia
 
 # Original
 bash
