@@ -17,7 +17,7 @@ dms
 
 # GREETER
 sddm
-sddm-theme-breeze-dark
+materia-kde-sddm
 
 # Original
 bash
