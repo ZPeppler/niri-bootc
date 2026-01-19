@@ -80,3 +80,10 @@ linux-firmware
 kernel-modules
 kernel-modules-extra
 iwlwifi-mvm-firmware
+
+# Yubikey
+yubikey-personalization-gui
+yubikey-manager-qt
+pam_yuibco
+pam-u2f
+pamu2fcfg
