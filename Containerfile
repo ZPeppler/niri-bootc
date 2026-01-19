@@ -31,8 +31,6 @@ RUN dnf clean all
 
 # CONFIGURATION
 COPY --chmod=0644 ./system/etc_skel_niri-bootc /etc/skel/.bashrc.d/niri-bootc
-RUN mkdir -p /etc/sddm.conf.d/ \
-  && printf "[Theme]\nCurrent=materia-dark\n" > /etc/sddm.conf.d/theme.conf
 
 # USERS
 
