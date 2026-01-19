@@ -17,8 +17,7 @@ dms
 
 # GREETER
 sddm
-greetd
-tuigreet
+ly
 
 # Original
 bash
