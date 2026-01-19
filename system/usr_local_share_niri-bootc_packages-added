@@ -48,6 +48,7 @@ lazygit
 wget
 unzip
 flatpak
+tailscale
 
 # Cockpit
 cockpit
