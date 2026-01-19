@@ -85,6 +85,7 @@ linux-firmware
 kernel-modules
 kernel-modules-extra
 iwlwifi-mvm-firmware
+alsa-sof-firmware
 
 # Yubikey
 yubikey-personalization-gui
