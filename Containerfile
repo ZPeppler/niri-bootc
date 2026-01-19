@@ -13,7 +13,7 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
-RUN dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # REMOVE COPR REPOS ASAP
 RUN dnf -y copr enable errornointernet/quickshell 
 RUN dnf -y copr enable dejan/lazygit
@@ -31,6 +31,8 @@ RUN dnf clean all
 
 # CONFIGURATION
 COPY --chmod=0644 ./system/etc_skel_niri-bootc /etc/skel/.bashrc.d/niri-bootc
+RUN mkdir -p /etc/sddm.conf.d/ \
+  && printf "[Theme]\nCurrent=breeze-dark\n" > /etc/sddm.conf.d/theme.conf
 
 # USERS
 
