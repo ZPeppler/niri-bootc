@@ -54,6 +54,8 @@ COPY ./applications/usr_share_applications_neovide.desktop \
     /usr/share/applications/neovide.desktop
 ADD --chmod=0644 https://raw.githubusercontent.com/neovide/neovide/main/assets/neovide.svg \
     /usr/share/icons/hicolor/scalable/apps/neovide.svg
+ADD --chmod=0644 https://raw.githubusercontent.com/neovide/neovide/main/assets/neovide.svg \
+    /usr/share/icons/Adwaita/scalable/apps/neovide.svg
 
 # CLEAN & CHECK
 RUN find /var/log -type f ! -empty -delete
