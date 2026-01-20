@@ -18,6 +18,7 @@ RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/sta
 RUN dnf -y copr enable errornointernet/quickshell 
 RUN dnf -y copr enable dejan/lazygit
 RUN dnf -y copr enable avengemedia/dms
+RUN dnf -y copr enable lihaohong/yazi 
 
 # INSTALL PACKAGES
 RUN dnf -y update

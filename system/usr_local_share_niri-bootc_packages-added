@@ -48,6 +48,7 @@ wget
 unzip
 flatpak
 tailscale
+yazi
 
 # Cockpit
 cockpit
