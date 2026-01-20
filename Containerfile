@@ -49,6 +49,10 @@ COPY --chmod=0644 ./systemd/usr_lib_systemd_system_bootc-fetch.timer /usr/lib/sy
 RUN systemctl enable bootloader-update.service
 RUN systemctl mask bootc-fetch-apply-updates.timer
 
+# NEOVIDE
+COPY ./applications/usr_share_applications_neovide.desktop \
+    /usr/share/applications/neovide.desktop
+
 # CLEAN & CHECK
 RUN find /var/log -type f ! -empty -delete
 RUN bootc container lint
