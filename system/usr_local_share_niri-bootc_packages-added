@@ -37,7 +37,6 @@ firewalld
 # Utilities
 vim-default-editor
 git
-vifm
 python3
 python3-pip
 glibc-langpack-en
@@ -49,6 +48,7 @@ unzip
 flatpak
 tailscale
 yazi
+tree
 
 # Cockpit
 cockpit
