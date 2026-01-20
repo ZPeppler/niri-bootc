@@ -15,6 +15,13 @@ dbus-daemon
 quickshell
 dms
 
+# NOCTALIA
+noctalia
+matugen-git
+cava
+wlsunset
+cliphist
+
 # GREETER
 sddm
 sddm-themes
@@ -49,6 +56,7 @@ flatpak
 tailscale
 yazi
 tree
+brightnessctl
 
 # Cockpit
 cockpit

@@ -14,6 +14,7 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
 RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+RUN dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 # REMOVE COPR REPOS ASAP
 RUN dnf -y copr enable errornointernet/quickshell 
 RUN dnf -y copr enable dejan/lazygit
