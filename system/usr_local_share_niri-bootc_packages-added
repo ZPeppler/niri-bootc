@@ -14,9 +14,6 @@ polkit
 dbus-daemon
 quickshell
 dms
-
-# NOCTALIA
-noctalia-shell
 cava
 wlsunset
 cliphist
