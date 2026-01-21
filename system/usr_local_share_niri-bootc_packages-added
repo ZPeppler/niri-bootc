@@ -59,6 +59,7 @@ tailscale
 yazi
 tree
 brightnessctl
+kubectl
 
 # Cockpit
 cockpit
