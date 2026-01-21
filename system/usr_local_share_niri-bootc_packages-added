@@ -12,11 +12,17 @@ xdg-desktop-portal-gtk
 xorg-x11-server-Xwayland
 polkit
 dbus-daemon
+
+# DMS
 quickshell
 dms
 cava
 wlsunset
 cliphist
+greetd
+dms-greeter
+dgop
+dsearch
 
 # GREETER
 sddm
