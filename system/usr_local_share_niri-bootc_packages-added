@@ -19,14 +19,13 @@ dms
 cava
 wlsunset
 cliphist
-greetd
-dms-greeter
 dgop
 dsearch
 
 # GREETER
 sddm
 sddm-themes
+lidm
 
 # Original
 bash
