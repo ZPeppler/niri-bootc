@@ -14,6 +14,9 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
 RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+RUN dnf install -y \
+  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 # REMOVE COPR REPOS ASAP
 RUN dnf -y copr enable errornointernet/quickshell 
 RUN dnf -y copr enable dejan/lazygit
