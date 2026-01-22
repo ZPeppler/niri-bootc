@@ -41,11 +41,17 @@ COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.con
 
 # USERS
 
-# ZELLIJ
+# BINBARY DOWNLOADS
 RUN mkdir -p /tmp/src \
     && curl -L https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz -o /tmp/src/zellij.tar.gz \
     && tar -xzf /tmp/src/zellij.tar.gz -C /tmp/src \
-    && mv /tmp/src/zellij /usr/local/bin/ \
+    && mv /tmp/src/zellij /usr/bin/ \
+    && curl -L https://github.com/eza-community/eza/releases/download/v0.23.4/eza_x86_64-unknown-linux-gnu.tar.gz -o /tmp/src/eza.tar.gz \
+    && tar -xzf /tmp/src/eza.tar.gz -C /tmp/src \
+    && mv /tmp/src/eza /usr/bin \
+    && curl -L https://github.com/neovide/neovide/releases/download/0.15.2/neovide-linux-x86_64.tar.gz -o /tmp/src/neovide.tar.gz \
+    && tar -xzf /tmp/src/neovide.tar.gz -C /tmp/src \
+    && mv /tmp/src/neovide /usr/bin \
     && rm -rf /tmp/*
 
 # SYSTEMD
