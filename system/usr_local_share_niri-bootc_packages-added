@@ -57,6 +57,7 @@ tailscale
 tree
 brightnessctl
 kubectl
+zellij
 
 # Cockpit
 cockpit
