@@ -25,7 +25,6 @@ dsearch
 # GREETER
 sddm
 sddm-themes
-lidm
 
 # Original
 bash

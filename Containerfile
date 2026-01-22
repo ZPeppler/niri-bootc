@@ -19,7 +19,6 @@ RUN dnf -y copr enable errornointernet/quickshell
 RUN dnf -y copr enable dejan/lazygit
 RUN dnf -y copr enable avengemedia/dms
 RUN dnf -y copr enable lihaohong/yazi 
-RUN dnf -y copr enable celestelove/lidm
 
 # INSTALL PACKAGES
 RUN dnf -y update
