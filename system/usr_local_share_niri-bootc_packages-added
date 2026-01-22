@@ -44,6 +44,7 @@ firewalld
 # Utilities
 vim-default-editor
 git
+gh
 python3
 python3-pip
 glibc-langpack-en
@@ -57,6 +58,8 @@ tailscale
 tree
 brightnessctl
 kubectl
+ansible-core
+toolbox
 
 # Cockpit
 cockpit

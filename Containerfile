@@ -14,6 +14,7 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
 RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+RUN dnf -y config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
 RUN dnf install -y \
   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -41,18 +42,15 @@ COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.con
 
 # USERS
 
-# BINBARY DOWNLOADS
-RUN mkdir -p /tmp/src \
-    && curl -L https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz -o /tmp/src/zellij.tar.gz \
-    && tar -xzf /tmp/src/zellij.tar.gz -C /tmp/src \
-    && mv /tmp/src/zellij /usr/bin/ \
-    && curl -L https://github.com/eza-community/eza/releases/download/v0.23.4/eza_x86_64-unknown-linux-gnu.tar.gz -o /tmp/src/eza.tar.gz \
-    && tar -xzf /tmp/src/eza.tar.gz -C /tmp/src \
-    && mv /tmp/src/eza /usr/bin \
-    && curl -L https://github.com/neovide/neovide/releases/download/0.15.2/neovide-linux-x86_64.tar.gz -o /tmp/src/neovide.tar.gz \
-    && tar -xzf /tmp/src/neovide.tar.gz -C /tmp/src \
-    && mv /tmp/src/neovide /usr/bin \
-    && rm -rf /tmp/*
+# GITHUB BINARY DOWNLOADS
+COPY scripts/bin.list /usr/local/share
+COPY scripts/install-github-bins.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/install-github-bins.sh \
+    && /usr/local/bin/install-github-bins.sh
+
+# NEOVIDE
+COPY ./applications/usr_share_applications_neovide.desktop \
+    /usr/share/applications/neovide.desktop
 
 # SYSTEMD
 RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
@@ -66,10 +64,6 @@ COPY --chmod=0644 ./systemd/usr_lib_systemd_system_bootc-fetch.timer /usr/lib/sy
 
 RUN systemctl enable bootloader-update.service
 RUN systemctl mask bootc-fetch-apply-updates.timer
-
-# NEOVIDE
-COPY ./applications/usr_share_applications_neovide.desktop \
-    /usr/share/applications/neovide.desktop
 
 # CLEAN & CHECK
 RUN find /var/log -type f ! -empty -delete
