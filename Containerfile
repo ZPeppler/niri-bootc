@@ -43,7 +43,7 @@ COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.con
 # USERS
 
 # GITHUB BINARY DOWNLOADS
-COPY scripts/bin.list /usr/local/share
+COPY scripts/bins.list /usr/local/share
 COPY scripts/install-github-bins.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/install-github-bins.sh \
     && /usr/local/bin/install-github-bins.sh
