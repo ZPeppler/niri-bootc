@@ -45,7 +45,7 @@ COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.con
 RUN mkdir -p /tmp/src \
     && curl -L https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz -o /tmp/src/zellij.tar.gz \
     && tar -xzf /tmp/src/zellij.tar.gz -C /tmp/src \
-    && mv /tmp/src/zellij/* /usr/local/bin/ \
+    && mv /tmp/src/zellij /usr/local/bin/ \
     && rm -rf /tmp/*
 
 # SYSTEMD
