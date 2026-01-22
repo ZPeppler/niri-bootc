@@ -41,6 +41,11 @@ COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.con
 
 # USERS
 
+# ZELLIJ
+RUN wget https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz -P /tmp
+RUN tar -xvzf /tmp/zellij-x86_64-unknown-linux-musl.tar.gz -C /tmp
+COPY --chmod=0755 /tmp/zellij /usr/local/bin/zellij
+
 # SYSTEMD
 RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
   ln -s /usr/lib/systemd/system/xdg-desktop-portal.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal.service && \
