@@ -42,9 +42,11 @@ COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.con
 # USERS
 
 # ZELLIJ
-RUN wget https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz -P /tmp
-RUN tar -xvzf /tmp/zellij-x86_64-unknown-linux-musl.tar.gz -C /tmp
-COPY --chmod=0755 /tmp/zellij /usr/local/bin/zellij
+RUN mkdir -p /tmp/src \
+    && curl -L https://github.com/zellij-org/zellij/releases/download/v0.43.1/zellij-x86_64-unknown-linux-musl.tar.gz -o zellij.tar.gz \
+    && tar -xzf zellij.tar.gz \
+    && mv zellij/* /usr/local/bin/ \
+    && rm -rf /tmp/*
 
 # SYSTEMD
 RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
