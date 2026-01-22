@@ -76,6 +76,7 @@ bat
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+starship
 
 # NVIM
 neovim
