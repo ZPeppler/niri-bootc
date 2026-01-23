@@ -48,6 +48,10 @@ COPY scripts/install-github-bins.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/install-github-bins.sh \
     && /usr/local/bin/install-github-bins.sh
 
+# EZPODMAN
+RUN curl -fsSL https://raw.githubusercontent.com/alfonsosanchez12/ezpodman/main/ezpodman -o /usr/local/bin/ezpodman
+RUN chmod +x /usr/local/bin/ezpodman
+
 # NEOVIDE
 COPY ./applications/usr_share_applications_neovide.desktop \
     /usr/share/applications/neovide.desktop
