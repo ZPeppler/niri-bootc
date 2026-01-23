@@ -9,6 +9,7 @@ wl-clipboard
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
+xdg-desktop-portal-termfilechooser
 xorg-x11-server-Xwayland
 polkit
 dbus-daemon

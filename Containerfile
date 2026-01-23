@@ -24,6 +24,7 @@ RUN dnf -y copr enable dejan/lazygit
 RUN dnf -y copr enable avengemedia/dms
 RUN dnf -y copr enable lihaohong/yazi 
 RUN dnf -y copr enable atim/starship
+RUN dnf -y copr enable mo-k12/personal
 
 # INSTALL PACKAGES
 RUN dnf -y update
