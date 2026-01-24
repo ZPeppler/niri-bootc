@@ -62,8 +62,6 @@ brightnessctl
 kubectl
 ansible-core
 toolbox
-nautilus
-nemo
 
 # Cockpit
 cockpit
