@@ -27,7 +27,7 @@ dsearch
 # GREETER
 sddm
 sddm-themes
-dms-greet
+dms-greeter
 greetd
 tuigreet
 
