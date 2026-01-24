@@ -27,6 +27,9 @@ dsearch
 # GREETER
 sddm
 sddm-themes
+dms-greet
+greetd
+tuigreet
 
 # Original
 bash
