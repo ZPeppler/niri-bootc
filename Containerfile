@@ -39,7 +39,6 @@ RUN dnf clean all
 
 # CONFIGURATION
 COPY --chmod=0644 ./system/etc_skel_niri-bootc /etc/skel/.bashrc.d/niri-bootc
-COPY --chmod=0644 ./system/etc_sddm.conf.d_theme.conf /etc/sddm.conf.d/theme.conf
 
 # USERS
 
