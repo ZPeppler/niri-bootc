@@ -46,6 +46,9 @@ tmux
 man-db
 firewalld
 
+# Gaming
+steam
+
 # Utilities
 vim-default-editor
 git
