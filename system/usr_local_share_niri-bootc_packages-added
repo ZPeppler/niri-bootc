@@ -82,6 +82,7 @@ btop
 ncdu
 nmap
 bat
+fastfetch
 
 # ZSH
 zsh
