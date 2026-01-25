@@ -44,7 +44,6 @@ man-db
 firewalld
 
 # Gaming
-steam
 ibus
 ibus-libs
 ibus-gtk3
