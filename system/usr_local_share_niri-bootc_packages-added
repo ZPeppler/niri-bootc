@@ -45,6 +45,11 @@ firewalld
 
 # Gaming
 steam
+ibus
+ibus-libs
+ibus-gtk3
+ibus-gtk4
+ibus-wayland
 
 # Utilities
 vim-default-editor
