@@ -2,6 +2,9 @@
 # List of packages to install on top of base image
 ####################################################
 
+# SWAY
+sway
+
 # NIRI 
 niri
 kitty
@@ -82,7 +85,6 @@ btop
 ncdu
 nmap
 bat
-fastfetch
 
 # ZSH
 zsh
