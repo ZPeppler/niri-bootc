@@ -8,45 +8,46 @@ swayidle
 swaybg
 
 # NIRI 
-niri
+bluecurve-cursor-theme.noarch
+dbus-daemon
 kitty
+niri
+polkit
 wl-clipboard
 xdg-desktop-portal
-xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
 xdg-desktop-portal-termfilechooser
+xdg-desktop-portal-wlr
 xorg-x11-server-Xwayland
-polkit
-dbus-daemon
-bluecurve-cursor-theme.noarch
 
 # DMS
-quickshell
-dms
 cava
-wlsunset
 cliphist
 dgop
+dms
 dsearch
+quickshell
+wlsunset
 
 # GREETER
 dms-greeter
 greetd
+greetd-selinux
 
 # Original
-bash
-coreutils
-util-linux
-iproute
-iputils
 NetworkManager
 NetworkManager-wifi
+bash
+coreutils
+firewalld
+iproute
+iputils
+less
+man-db
 openssh-server
 sudo
-less
 tmux
-man-db
-firewalld
+util-linux
 
 # Gaming
 ibus
@@ -56,24 +57,25 @@ ibus-gtk4
 ibus-wayland
 
 # Utilities
-vim-default-editor
-git
+ansible-core
+brightnessctl
+chezmoi
+flatpak
 gh
+git
+glibc-langpack-en
+kubectl
+lazygit
+lspci
 python3
 python3-pip
-glibc-langpack-en
-lspci
-zoxide
-lazygit
-wget
-unzip
-flatpak
 tailscale
-tree
-brightnessctl
-kubectl
-ansible-core
 toolbox
+tree
+unzip
+vim-default-editor
+wget
+zoxide
 
 # Cockpit
 cockpit
