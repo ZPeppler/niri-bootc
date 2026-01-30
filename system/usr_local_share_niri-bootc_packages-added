@@ -89,6 +89,7 @@ libvirt
 virt-install
 virt-viewer
 virt-manager
+qemu-guest-agent
 
 # Troubleshooting
 lshw
