@@ -2,7 +2,8 @@ name: build container -> niri-bootc
 run-name: building container -> niri-bootc
 on:
   schedule:
-    - cron: "0 3 * * 1"
+    - cron: "0 3 * * 1" # KEEP for testing until patch Tuesday is confirmed
+    - cron: "0 22 * * 2#2" # Patch Tuesday cron job
   push:
     branches:
       - main
