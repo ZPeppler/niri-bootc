@@ -83,6 +83,12 @@ cockpit-podman
 cockpit-selinux
 cockpit-files
 
+# Virtualization
+qemu-kvm
+libvirt
+virt-install
+virt-viewer
+
 # Troubleshooting
 lshw
 btop
