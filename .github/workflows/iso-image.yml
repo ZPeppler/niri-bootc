@@ -1,0 +1,34 @@
+name: build container -> niri-bootc
+run-name: building container -> niri-bootc
+on:
+  schedule:
+    - cron: "0 3 * * 1" # KEEP for testing until patch Tuesday is confirmed
+    - cron: "0 22 8-14 * 2" # Patch Tuesday cron job
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  niri-bootc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: run podman build
+        run: podman build --no-cache -t niri-bootc --disable-compression=false .
+
+      - name: Log in to GHCR
+        run: |
+          echo "${{ secrets.GHCR_PAT }}" | podman login ghcr.io -u "${{ github.repository_owner }}" --password-stdin
+
+      - name: push image to ghcr.io
+        run: |
+          podman tag niri-bootc ghcr.io/zpeppler/niri-bootc:latest
+          podman push ghcr.io/zpeppler/niri-bootc:latest
