@@ -1,0 +1,27 @@
+{
+    "userName" : "zpeppler",
+    "realName" : "Zach",
+    "storage" : "luks",
+    "fileSystemType" : "btrfs",
+    "diskSize" : 10737418240,
+    "luksDiscard" : false,
+    "luksOfflineDiscard" : true,
+    "luksResizeMode" : "shrink-and-grow",
+    "rebalanceWeight" : false,
+    "uid" : 1000,
+    "gid" : 1000,
+    "disposition" : "regular",
+    "memberOf" : [
+        "wheel"
+    ],
+    "privileged" : {
+        "hashedPassword" : [
+            "$y$j9T$a6W.gg4oeMbw8EpxnnVN3/$ijjyIodD5peJDUvYVMKOAhtjnhkLzmfSZk3dw2trx64"
+        ]
+    },
+    "secret" : {
+        "password" : [
+            "TempPass"
+        ]
+    }
+}

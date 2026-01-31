@@ -1,0 +1,10 @@
+#! /bin/bash
+
+USER_NAME=zpeppler
+
+# SYSTEMD-HOMED USERS
+echo "$USER_NAME:10000001:65536">/etc/subuid
+echo "$USER_NAME:10000001:65536">/etc/subgid
+
+# Initial root password
+echo "TempPass" | passwd root -s

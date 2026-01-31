@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# Setup Host
+
+HOST_NAME=niri-bootc
+hostnamectl hostname $HOST_NAME
+
+# Setup users
+
+homectl firstboot
+
+# Setup Firewall
+
+if [ "$(firewall-cmd --get-default-zone)" != "public" ]; then firewall-cmd --set-default-zone=public; fi

@@ -1,0 +1,4 @@
+#! /bin/bash
+
+# Allow systemd-homed authorization mechanism
+authselect enable-feature with-systemd-homed
