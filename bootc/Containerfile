@@ -13,18 +13,17 @@ RUN jq -r .packages[] /usr/share/rpm-ostree/treefile.json > /usr/local/share/nir
 
 # INSTALL REPOS
 RUN dnf -y install dnf5-plugins
-RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-RUN dnf -y config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
-RUN dnf install -y \
-  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# RUN dnf -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+# RUN dnf -y config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+# RUN dnf install -y \
+#   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+#   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 # REMOVE COPR REPOS ASAP
-RUN dnf -y copr enable errornointernet/quickshell 
-RUN dnf -y copr enable dejan/lazygit
-RUN dnf -y copr enable avengemedia/dms
-RUN dnf -y copr enable lihaohong/yazi 
-RUN dnf -y copr enable atim/starship
-RUN dnf -y copr enable mo-k12/personal
+
+# RUN dnf -y copr enable avengemedia/dms
+# RUN dnf -y copr enable lihaohong/yazi 
+# RUN dnf -y copr enable atim/starship
+# RUN dnf -y copr enable mo-k12/personal
 
 # INSTALL PACKAGES
 RUN dnf -y update
@@ -41,33 +40,28 @@ COPY --chmod=0644 ./system/etc_skel_niri-bootc /etc/skel/.bashrc.d/niri-bootc
 COPY --chmod=0755 ./system/usr_local_bin/* /usr/local/bin/
 
 # USERS
-COPY --chmod=0644 ./system/usr_lib_credstore_home.create.zpeppler /usr/lib/credstore/home.create.zpeppler
-COPY --chmod=0755 ./scripts/config* /tmp/scripts/
-RUN /tmp/scripts/config-users
-RUN /tmp/scripts/config-authselect && rm -r /tmp/scripts
 
 # GITHUB BINARY DOWNLOADS
-COPY scripts/bins.list /usr/local/share
-COPY scripts/install-github-bins.sh /usr/local/bin
-RUN chmod +x /usr/local/bin/install-github-bins.sh \
-    && /usr/local/bin/install-github-bins.sh
+# COPY scripts/bins.list /usr/local/share
+# COPY scripts/install-github-bins.sh /usr/local/bin
+# RUN chmod +x /usr/local/bin/install-github-bins.sh \
+#     && /usr/local/bin/install-github-bins.sh
 
 # EZPODMAN
-RUN curl -fsSL https://raw.githubusercontent.com/alfonsosanchez12/ezpodman/main/ezpodman -o /usr/local/bin/ezpodman
-RUN chmod +x /usr/local/bin/ezpodman
+# RUN curl -fsSL https://raw.githubusercontent.com/alfonsosanchez12/ezpodman/main/ezpodman -o /usr/local/bin/ezpodman
+# RUN chmod +x /usr/local/bin/ezpodman
 
 # NEOVIDE
-COPY ./applications/usr_share_applications_neovide.desktop \
-    /usr/share/applications/neovide.desktop
+# COPY ./applications/usr_share_applications_neovide.desktop \
+#     /usr/share/applications/neovide.desktop
 
 # SYSTEMD
-RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
-  ln -s /usr/lib/systemd/system/xdg-desktop-portal.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal.service && \
-  ln -s /usr/lib/systemd/system/xdg-desktop-portal-wlr.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-wlr.service && \
-  ln -s /usr/lib/systemd/system/xdg-desktop-portal-gtk.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-gtk.service
+# RUN mkdir -p /etc/systemd/system/multi-user.target.wants/ && \
+#   ln -s /usr/lib/systemd/system/xdg-desktop-portal.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal.service && \
+#   ln -s /usr/lib/systemd/system/xdg-desktop-portal-wlr.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-wlr.service && \
+#   ln -s /usr/lib/systemd/system/xdg-desktop-portal-gtk.service /etc/systemd/system/multi-user.target.wants/xdg-desktop-portal-gtk.service
 RUN systemctl enable cockpit.socket
 
-COPY --chmod=0644 ./systemd/usr_lib_systemd_system_firstboot-setup.service /usr/lib/systemd/system/firstboot-setup.service
 COPY --chmod=0644 ./systemd/usr_lib_systemd_system_bootc-fetch.service /usr/lib/systemd/system/bootc-fetch.service
 COPY --chmod=0644 ./systemd/usr_lib_systemd_system_bootc-fetch.timer /usr/lib/systemd/system/bootc-fetch.timer
 

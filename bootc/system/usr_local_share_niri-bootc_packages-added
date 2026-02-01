@@ -6,19 +6,20 @@
 sway
 swayidle
 swaybg
+sddm
 
 # NIRI 
-bluecurve-cursor-theme.noarch
-dbus-daemon
-kitty
-niri
-polkit
-wl-clipboard
-xdg-desktop-portal
-xdg-desktop-portal-gtk
+# bluecurve-cursor-theme.noarch
+# dbus-daemon
+# kitty
+# niri
+# polkit
+# wl-clipboard
+# xdg-desktop-portal
+# xdg-desktop-portal-gtk
 # xdg-desktop-portal-termfilechooser
-xdg-desktop-portal-wlr
-xorg-x11-server-Xwayland
+# xdg-desktop-portal-wlr
+# xorg-x11-server-Xwayland
 
 # DMS
 # cava
@@ -31,8 +32,8 @@ xorg-x11-server-Xwayland
 
 # GREETER
 # dms-greeter
-greetd
-greetd-selinux
+# greetd
+# greetd-selinux
 
 # Original
 NetworkManager
@@ -50,11 +51,11 @@ tmux
 util-linux
 
 # Gaming
-ibus
-ibus-libs
-ibus-gtk3
-ibus-gtk4
-ibus-wayland
+# ibus
+# ibus-libs
+# ibus-gtk3
+# ibus-gtk4
+# ibus-wayland
 
 # Utilities
 ansible-core
@@ -114,9 +115,9 @@ nodejs
 cargo
 
 # NEOVIDE
-fontconfig-devel
-libstdc++-static
-libstdc++-devel
+# fontconfig-devel
+# libstdc++-static
+# libstdc++-devel
 
 # Drivers
 linux-firmware
@@ -134,6 +135,6 @@ pamu2fcfg
 
 # YAZI
 # yazi
-ImageMagick
-poppler
-ffmpeg
+# ImageMagick
+# poppler
+# ffmpeg
